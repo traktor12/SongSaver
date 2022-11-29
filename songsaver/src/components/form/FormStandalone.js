@@ -1,36 +1,59 @@
 import React, { useState } from "react";
 
-function FormStandalone() {
+function FormStandalone(props) {
 
     const [stitle, setStitle] = useState('');
     const [artist, setArtist] = useState('');
     const [genre, setGenre]= useState('none');
-
-    const handleSubmit = (e)=>{
-        e.preventDefault()
-        console.log({stitle},{aname: artist},{genre})
+    const [rating, setRating]= useState('');
+//Code to be executed when "submit" is pressed -----------------------------------------
+    const handleSubmit = e=>{
+      e.preventDefault(); //Stop the page from default reloading 
+        props.onSubmit({
+            id: Math.floor(Math.random() * 10000),
+            SongTitle: stitle,
+            Artist: artist,
+            Genre: genre,
+            Rating: rating
+        })
     }
-
+//Return statement -----------------------------------------------------------------------
   return (
     <div>
+        <form onSubmit={handleSubmit}>
+{/*Input field for the Song Name --------------------------------------------------*/}
       <input
+        placeholder="Song title"
         type="text"
         value={stitle}
         onChange={(e) => setStitle(e.target.value)}
       />
+{/*Input Field for the Artist's name ---------------------------------------------*/}
         <input     
+        placeholder="Artist name"
         type='text'
         value={artist}
         onChange={(e)=>setArtist(e.target.value)}
         />
+{/*Dropdown for selecting the genre of the song ----------------------------------*/}
           <select value={genre} onChange={(e)=>setGenre(e.target.value)}>
-            <option value='none'>None</option>
-            <option value='rock'>Rock</option>
-            <option value='metal'>Metal</option>
+            <option value='None'>None</option>
+            <option value='Rock'>Rock</option>
+            <option value='Metal'>Metal</option>
         </select>
-    <button form="addSong" type="submit" onClick={handleSubmit}>Submit</button>
+{/*Enter a number to rate the song ---------------------------------------------- */}
+        <input    
+        placeholder="Rating"
+        type='number'
+        value={rating}
+        onChange={(e)=>setRating(e.target.value)}
+        />
+{/*The Submit button --------------------------------------------------------------*/}
+    <button form="addSong" onClick={handleSubmit} type="submit">Submit</button>
+    </form>
     </div>
   );
 }
 
+//Export ------------------------------------------------------------------------------
 export default FormStandalone;

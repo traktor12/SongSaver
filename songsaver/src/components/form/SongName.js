@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import FormSubmit from './FormSubmit';
 
 export const SongContext = React.createContext();
 
@@ -13,6 +14,7 @@ function SongName(){
         value={stitle}
         onChange={(e)=>setStitle(e.target.value)}
         />
+        <FormSubmit/>
         </SongContext.Provider>
     )
 }
