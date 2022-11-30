@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import FormStandalone from './FormStandalone';
 
-const Song=({songs, completeSong, removeSong, updateSong})=>{
-
+const Song=({songs, completeSong, removeSong, updateSong,})=>{
+//---------------------------------------------------
     const[edit,setEdit]=useState({
         id: null,
         value:''
     });
-
+//---------------------------------------------------
     const submitUpdate=value=>{
         updateSong(edit.id,value);
         setEdit({
@@ -15,16 +15,14 @@ const Song=({songs, completeSong, removeSong, updateSong})=>{
             value:''
         });
     };
-
+//---------------------------------------------------
     if (edit.id){
         return <FormStandalone edit={edit} onSubmit={submitUpdate} />
     }
-
-    return songs.map((song,index) => (
-        <div 
-        className={song.isComplete?'song-row complete':'song-row'}
-        key={index} >
-
+//---------------------------------------------------
+//---------------------------------------------------
+    return songs.map((song) => (
+        <div key={song.id} >
         <div  key={song.id} onClick={()=>completeSong(song.id)}>
         <span>Song: {song.SongTitle} - Artist: {song.Artist} - Genre: {song.Genre} - Rating {song.Rating}</span>
         </div>

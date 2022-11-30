@@ -4,7 +4,7 @@ function FormStandalone(props) {
 
     const [stitle, setStitle] = useState('');
     const [artist, setArtist] = useState('');
-    const [genre, setGenre]= useState('none');
+    const [genre, setGenre]= useState('None');
     const [rating, setRating]= useState('');
 //Code to be executed when "submit" is pressed -----------------------------------------
     const handleSubmit = e=>{
@@ -54,6 +54,5 @@ function FormStandalone(props) {
     </div>
   );
 }
-
 //Export ------------------------------------------------------------------------------
 export default FormStandalone;
