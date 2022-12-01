@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+input {
+  margin-right: 4px;
+  background-color: bisque;
+  border: none;
+  padding: 6px 8px;
+}
+input::-moz-placeholder {
+  color: rgb(121, 109, 109);
+}
+input:-ms-input-placeholder {
+  color: rgb(121, 109, 109);
+}
+input::placeholder {
+  color: rgb(121, 109, 109);
+}
+
+#ratingField {
+  width: 4rem;
+}
+
+button, select {
+  margin-right: 4px;
+  border-radius: 0;
+  padding: 6px 8px;
+  background-color: bisque;
+  color: rgb(255, 63, 33);
+  font-size: 14px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+}
+button:hover, select:hover {
+  cursor: pointer;
+}
+
+#songSubmitBtn {
+  background-color: rgb(255, 187, 104);
+  color: rgb(162, 23, 1);
+}
+
+.songListDiv {
+  width: 98%;
+  display: block;
+  margin-left: 1%;
+}
+.songListDiv h2 {
+  background-color: rgb(255, 63, 33);
+  color: bisque;
+  width: 30%;
+  margin-bottom: 4px;
+}
+.songListDiv .displayedSongDiv, .songListDiv .songFormDiv {
+  width: 100%;
+  margin-top: 0px;
+}
+
+.indDisplayedSongs {
+  background-color: rgb(0, 0, 145);
+  display: flex;
+  justify-content: space-between;
+  color: rgb(218, 207, 178);
+}
+
+.filterGenreDiv {
+  margin-bottom: 1rem;
+}
+
+.songButtons {
+  margin-top: 8px;
+}
+.songButtons button {
+  margin-right: 10px;
+}
+
+.nav {
+  color: rgb(255, 63, 33);
+  background-color: bisque;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 1.5rem;
+}
+.nav .siteTitle {
+  font-size: 3rem;
+}
+.nav ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+.nav a {
+  list-style: none;
+  text-decoration: none;
+}
+.nav a:visited {
+  color: inherit;
+}/*# sourceMappingURL=style.css.map */

@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import FormStandalone from './FormStandalone';
-import Song from './Song';
+import Song from './IndividualSong';
 
 function SongList(){
 
     const [songs, setSongs]=useState([]);
     const [allSongs, setAllSongs]=useState([]);
+    const [allFilter, setAllFilter]=useState(false)
 //Create new song ----------------------------------------------------------
     const newSong = e=>{
         if (!e.SongTitle || !e.Artist || !e.Genre || !e.Rating ){
@@ -18,9 +19,13 @@ function SongList(){
     }
 //Filter song ----------------------------------------------------------------
 function filterGenre(){
-    let options=
+    let optionsAll=
+    <button value='All'name='genreFilterSelect' onClick={filterChange}>
+     Show All
+    </button>
+    let optionsFiltered=
     <select name='genreFilterSelect' onChange={filterChange}>
-        <option value='All'>All</option>
+        <option>Select Genre</option>
         <option value='None'>None</option>
         <option value='Rock'>Rock</option>
         <option value='Metal'>Metal</option>
@@ -29,61 +34,55 @@ function filterGenre(){
     function filterChange(event){
         console.log(event.target.value)
         console.log(allSongs)
-                if (event.target.value==='All'){
+                if (allFilter){
                     setSongs(allSongs);
+                    setAllFilter(false)
                 }
                 else {
+                    setAllFilter(true)
                     setSongs(allSongs)
-                   setSongs([...songs].filter(song=>song.Genre===event.target.value));  
+                    setSongs([...songs].filter(song=>song.Genre===event.target.value));  
                 }
     }
     return (
-          options  
+        <div className='filterGenreDiv'>
+        {allFilter ? 
+        optionsAll : optionsFiltered
+        }
+        </div>
             )
 }
-//Update song ----------------------------------------------------------------
-    const updateSong = (songId, newInput)=>{
-        if(!newInput.SongTitle ||
-            !newInput.Artist ||
-            !newInput.Genre ||
-            !newInput.Rating){
-            return
-        }
-        setSongs(p=>p.map(i=>(i.id===songId?newInput:i)));
-        setAllSongs(p=>p.map(i=>(i.id===songId?newInput:i)));
-
-    }
 //Delete song ----------------------------------------------------------------
     const removeSong=id=>{
         const removedS = [...songs].filter(song=>song.id!==id);
         setSongs(removedS);
-        setAllSongs(removedS);
+        setAllSongs(removedS)
     }
-//----------- ----------------------------------------------------------------
-    const completeSong = id => {
-        let updatedSongs = songs.map(song=>{
-            if(song.id===id){
-                song.isComplete = !song.isComplete
-            }
-            return song;
-        });
-        setSongs(updatedSongs);
-    }
+    
 //return statement ----------------------------------------------------------
     return(
-        <div>
-            <h1>Saved Songs</h1>
+        <div className='songListDiv'>
+        
+            {
+            !allFilter && 
+            <div className='songFormDiv'>
+            <h2>Add new songs</h2>
             <FormStandalone
             onSubmit={newSong}
             />
-                    {filterGenre()}
+            </div>
+            }
+            <div className='displayedSongDiv'>
+            <h2>Saved Songs</h2>
+            {filterGenre()}
+
             <Song
                 allSongs={allSongs}
                 songs={songs}
-                completeSong={completeSong}
+                allFilter={allFilter}
                 removeSong={removeSong}
-                updateSong={updateSong}
             />
+            </div>
         </div>
     )
 

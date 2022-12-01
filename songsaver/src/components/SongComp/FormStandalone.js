@@ -45,11 +45,12 @@ function FormStandalone(props) {
         <input    
         placeholder="Rating"
         type='number'
+        id='ratingField'
         value={rating}
         onChange={(e)=>setRating(e.target.value)}
         />
 {/*The Submit button --------------------------------------------------------------*/}
-    <button form="addSong" onClick={handleSubmit} type="submit">Submit</button>
+    <button form="addSong" id="songSubmitBtn" onClick={handleSubmit} type="submit">Submit</button>
     </form>
     </div>
   );
