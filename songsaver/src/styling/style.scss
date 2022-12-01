@@ -1,0 +1,114 @@
+//Variables ------------------------------------------
+$color1: rgb(255, 63, 33);
+//Body ------------------------------------------------
+body {
+  margin: 0;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+}
+//Input Fields ----------------------------------------
+input{
+  margin-right: 4px;
+  background-color: bisque;
+  border: none;
+  padding: 6px 8px;
+  &::placeholder{
+    color: rgb(121, 109, 109);
+  }
+}
+#ratingField{
+  width: 4rem;
+}
+//Buttons ----------------------------------------------
+button, select{
+  margin-right: 4px;
+  border-radius: 0;
+  padding: 6px 8px;
+  background-color: bisque;
+  color:$color1;
+  font-size: 14px;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-weight:700;
+  text-decoration: none;
+  border: none;
+  &:hover{
+    cursor: pointer;
+  }
+}
+#songSubmitBtn{
+  background-color: rgb(255, 187, 104);
+  color:rgb(162, 23, 1);
+}
+
+//Song Saver -----------------------------------------------------------------
+.songListDiv{
+  width: 98%;
+  display: block;
+  margin-left: 1%;
+    h2{
+      background-color: $color1;
+      color: bisque;
+      width: 30%;
+      margin-bottom: 4px;
+    }
+    .displayedSongDiv, .songFormDiv{
+      width: 100%;
+      margin-top: 0px;
+    } 
+}
+
+.indDisplayedSongs{
+  background-color: rgb(167, 167, 236);
+  display: flex;
+  justify-content: space-between;
+  color: rgb(0, 0, 0);
+  font-weight: bolder;
+  border-bottom: 2px solid rgb(6, 6, 181);
+  border-right: 2px solid rgb(6, 6, 181);
+  margin-bottom: 3px;
+}
+
+.filterGenreDiv{
+  margin-bottom: 1rem;
+}
+.songButtons{
+  button{
+    margin-right: 10px;
+    margin-bottom: 5px;
+
+  }
+}
+
+//NavBar ----------------------------------------------------------------
+.nav {
+  color: $color1;
+  background-color: bisque;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 1.5rem;
+
+  .siteTitle {
+    font-size: 3rem;
+  }
+
+  ul {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+  }
+  a {
+    list-style: none;
+    text-decoration: none;
+    &:visited {
+      color: inherit;
+    }
+  }
+}
+//About ----------------------------
+.aboutDiv{
+  display: flex;
+  justify-content: center;
+  text-align: center;  
+  line-height: 30px;
+}
