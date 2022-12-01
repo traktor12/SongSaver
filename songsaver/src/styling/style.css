@@ -61,23 +61,21 @@ button:hover, select:hover {
 }
 
 .indDisplayedSongs {
-  background-color: rgb(167, 167, 236);
+  background-color: rgb(0, 0, 145);
   display: flex;
   justify-content: space-between;
-  color: rgb(0, 0, 0);
-  font-weight: bolder;
-  border-bottom: 2px solid rgb(6, 6, 181);
-  border-right: 2px solid rgb(6, 6, 181);
-  margin-bottom: 3px;
+  color: rgb(218, 207, 178);
 }
 
 .filterGenreDiv {
   margin-bottom: 1rem;
 }
 
+.songButtons {
+  margin-top: 8px;
+}
 .songButtons button {
   margin-right: 10px;
-  margin-bottom: 5px;
 }
 
 .nav {
@@ -103,11 +101,4 @@ button:hover, select:hover {
 }
 .nav a:visited {
   color: inherit;
-}
-
-.aboutDiv {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  line-height: 30px;
 }/*# sourceMappingURL=style.css.map */

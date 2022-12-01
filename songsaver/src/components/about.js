@@ -14,6 +14,7 @@ export default function About(){
             <br/>
             Because as I said I am not a fan of React and some things were much harder to do than I 
             anticipated
+
             </p>
         </div>
     )
